@@ -1,22 +1,19 @@
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html">
 	
 	<nav class="aw-menu">
 		<ul>
 			<li>
-				<h:link><i class="fa  fa-fw  fa-home"></i>Dashboard</h:link>
+                            <h:link ><i class="fa  fa-fw  fa-home"></i>Início</h:link>
 			</li>
 			<li class="is-selected">
-				<h:link><i class="fa fa fa-user"></i>Página 1</h:link>
+				<h:link outcome="/Telas/TelaPublicaLivre"><i class="fa fa fa-calendar-o"></i>Livres</h:link>
 			</li>
 			<li>
-				<h:link><i class="fa  fa-fw  fa-file-text"></i>Página 2</h:link>
-			</li>
-			<li>
-				<h:link><i class="fa  fa-fw  fa-cog"></i>Página 3</h:link>
+				<h:link outcome="/Telas/TelaPublicaReservado"><i class="fa fa fa-calendar"></i>Reservado</h:link>
 			</li>
 		</ul>
 	</nav>
 	
-</ui:composition>
+</ui:component>

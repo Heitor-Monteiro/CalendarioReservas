@@ -6,23 +6,25 @@
         template="/WEB-INF/templates/Layout_Publico.xhtml">
 	
 	<ui:define name="content">
-		<h1 class="aw-page-title">Título da sua página</h1>
+            <h1 class="aw-page-title">Recursos livres</h1>
 		
-                
-            
-                
-                
-		<h:form id="frm">
-			Pagina de recursos livres
-                        
-                <p:tabMenu activeIndex="0">
-                <p:menuitem value="Overview" icon="ui-icon-star"/>
-                <p:menuitem value="Demos" icon="ui-icon-search" />
-                <p:menuitem value="Documentation" icon="ui-icon-document"/>
-                <p:menuitem value="Support" icon="ui-icon-wrench"/>
-                <p:menuitem value="Social" icon="ui-icon-person" />
-            </p:tabMenu>
-		</h:form>
+            <p:dataTable var="" value="">
+                <p:column headerText="Cod" width="35">
+                    <h:outputText value="" />
+                </p:column>
+
+                <p:column headerText="Nome Recurso">
+                    <h:outputText value="" />
+                </p:column>
+
+                <p:column headerText="Local">
+                    <h:outputText value="" />
+                </p:column>
+
+                <p:column headerText="Descrição">
+                    <h:outputText value="" />
+                </p:column>
+            </p:dataTable>
         
 	</ui:define>
 	
