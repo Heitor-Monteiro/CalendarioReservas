@@ -1,4 +1,4 @@
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
         xmlns:h="http://xmlns.jcp.org/jsf/html"
         xmlns:p="http://primefaces.org/ui">
@@ -16,20 +16,20 @@
     
     <nav class="aw-menu">
         <ul>
-            <!--
-            <li id="item" class="" onclick="altera();">
-                <p:link href="/A2@sH7$j/Telas/TelaPublicaLivre.xhtml" ><i class="fa fa fa-calendar-o"></i>Livre</p:link>
+          
+            <li>
+                <h:link outcome="/Inicio"><i class="fa  fa-fw  fa-home"></i>Início</h:link>
             </li>
-            -->
             
             <li class="is-selected">
-                <p:link href="/A2@sH7$j/Telas/TelaPublicaLivre.xhtml" ><i class="fa fa fa-calendar-o"></i>Livre</p:link>
+                <h:link outcome="/Telas/TelaPublicaLivre" ><i class="fa fa fa-calendar-o"></i>Livres</h:link>
             </li>
             
             <li class="">
-                <p:link href="/A2@sH7$j/Telas/TelaPublicaReservado.xhtml" ><i class="fa fa fa-calendar"></i>Reservado</p:link>
+                <h:link outcome="/Telas/TelaPublicaReservado.xhtml" ><i class="fa fa fa-calendar"></i>Reservado</h:link>
             </li>
+            
         </ul>
     </nav>
 	
-</ui:composition>
+</ui:component>

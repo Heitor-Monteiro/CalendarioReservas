@@ -26,6 +26,25 @@
     <header class="aw-topbar">
         <h:graphicImage library="arquivos" name="images/logoCalendariReserva.svg" />
         <a href="#" class="aw-toggle  js-toggle"><i class="fa  fa-bars"></i></a>
+        
+          <div class="aw-toggle fa fa-sign-in" style="cursor: pointer" onclick="PF('MenuEntrar').show();">
+                Entrar
+            </div>
+            
+            <p:dialog maximizable="false" header="Entrar" widgetVar="MenuEntrar"  modal="true" position="center"  height="300">
+                <h:form >
+                    <p:messages  id="messages"  autoUpdate="true" closable="true" />
+                    <h:panelGrid columns="1" cellspacing="15">
+                        <p:inputText id="EntrarLogin" placeholder="Login"
+                                     required="true" requiredMessage="Digite seu login!" />
+
+                        <p:password id="EntrarSenha" placeholder="Senha"
+                                    required="true" requiredMessage="Digite sua senha!" />
+
+                        <p:commandButton id="EntrarBotao"  value="Entrar" />
+                    </h:panelGrid>
+                </h:form>
+            </p:dialog>
     </header>
 
     <aside class="aw-sidebar  js-sidebar">
