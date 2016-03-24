@@ -5,6 +5,11 @@
     
     <p:menu class="aw-menu" toggleable="true" style="border: 0px; background: none;">
         <p:menuitem class="menuitem" value="Inicio" outcome="/Telas/AdmINICIO"  icon="fa fa-home"/>
+        <p:submenu label="Reservas">
+            <p:menuitem class="menuitem" value="Pendentes" outcome="/Telas/AdmReservarPendente" icon="fa fa-archive" />
+            <p:menuitem class="menuitem" value="Confirmadas" outcome="/Telas/AdmReservarConfirmada" icon="fa fa-thumbs-up" />
+            <p:menuitem class="menuitem" value="Negadas" outcome="/Telas/AdmReservarNegadas" icon="fa fa-thumbs-down" />
+        </p:submenu>
         <p:submenu label="Usuários">
             <p:menuitem class="menuitem" value="Novo usuário" outcome="/Telas/AdmUsuarioNovo" icon="fa fa-user-plus" />
             <p:menuitem class="menuitem" value="Editar usuário" outcome="/Telas/AdmUsuarioEditar" icon="fa fa-pencil" />
@@ -12,8 +17,8 @@
         </p:submenu>
         <p:submenu label="Recusos">
             <p:menuitem class="menuitem" value="Novo recurso" outcome="/Telas/AdmRecursoNovo" icon="fa fa-plus" />
-            <p:menuitem class="menuitem" value="Editar recurso" outcome="/Telas/AdmRecursoEditar" icon="fa fa-trash" />
-            <p:menuitem class="menuitem" value="Excluir recurso" outcome="/Telas/AdmRecursoExcluir" icon="fa fa-wrench" />
+            <p:menuitem class="menuitem" value="Editar recurso" outcome="/Telas/AdmRecursoEditar" icon="fa fa-wrench" />
+            <p:menuitem class="menuitem" value="Excluir recurso" outcome="/Telas/AdmRecursoExcluir" icon="fa fa-trash" />
         </p:submenu>
     </p:menu>	
 </ui:composition>
