@@ -10,26 +10,32 @@
             
             
             <h:form id="NovoRecurso">
-                
                 <div class="ui-fluid">
-                
-                
-                <p:panelGrid columns="2" layout="grid"
-                             style="margin-top: 20px"
-                             styleClass="panelgrid-noborder"
-                             columnClasses="ui-grid-col-2">
-                    <p:outputLabel value="Nome" />
-                    <p:inputText id="New_NomeRecurso" />
-                    
-                    <p:outputLabel value="Local" />
-                    <p:inputText id="New_LocalRecurso" />
+                    <p:messages  id="messages" autoUpdate="true" closable="true" />
+                    <p:panelGrid columns="2" layout="grid"
+                                 style="margin-top: 20px"
+                                 styleClass="panelgrid-noborder"
+                                 columnClasses="ui-grid-col-2, ui-grid-col-4">
+                        <p:outputLabel for="New_NomeRecurso" value="Nome" />
+                        <p:inputText id="New_NomeRecurso" required="true" requiredMessage="Falta o nome do recurso!" />
 
-                    <p:outputLabel value="Descrição" />
-                    <p:inputTextarea id="New_DescricaoRecurso" />
+                        <p:outputLabel for="New_LocalRecurso" value="Local" />
+                        <p:inputText id="New_LocalRecurso" required="true" requiredMessage="Informe o local!" />
+
+                        <p:outputLabel for="New_DescricaoRecurso" value="Descrição" />
+                        <p:inputTextarea id="New_DescricaoRecurso" required="true" requiredMessage="Informe a descrição!" />
+                    </p:panelGrid>
                     
-                    <p:commandButton id="SalvarNovoUsuario" icon="fa fa-save" value="Salvar" />
-                </p:panelGrid>
-                    
+                    <p:panelGrid columns="3" layout="grid" 
+                                 style="margin-top: 20px"
+                                 styleClass="panelgrid-noborder"
+                                 columnClasses="ui-grid-col-2,ui-grid-col-2,ui-grid-col-2" >
+                        <p:commandButton id="SalvarNovoUsuario" icon="fa fa-save" value="Salvar" action="#" />
+
+                        <p:commandButton type="reset" id="LimparCampos" icon="fa fa-eraser" value="Limpar" action="#" />
+                        
+                        <p:button id="Cancelar" icon="fa fa-ban" value="Cancelar" outcome="/Telas/AdmINICIO" />
+                    </p:panelGrid>
                 </div>
             </h:form>
 	</ui:define>
