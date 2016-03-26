@@ -7,6 +7,54 @@
 	
 	<ui:define name="content">
             <h1 class="aw-page-title">Excluir recurso</h1>
+            
+            <h:form id="ExcluirRecurso">
+                <div class="ui-fluid">
+                    <p:messages  id="messages" autoUpdate="true" closable="true" />
+                    <p:panelGrid columns="2" layout="grid" 
+                                 style="margin-top: 20px;"
+                                 styleClass="panelgrid-noborder"
+                                 columnClasses="ui-grid-col-2,ui-grid-col-4">
+                        <p:outputLabel value="Pesquisar por:" />
+                        
+                        <p:selectOneButton value="" required="true" requiredMessage="Escolha um tipo de pesquisa!" >
+                            <f:selectItem itemLabel="Nome" itemValue="nome" />
+                            <f:selectItem itemLabel="Local" itemValue="loca" />
+                            <f:selectItem itemLabel="Cod" itemValue="cod" />
+                        </p:selectOneButton>
+                    </p:panelGrid>
+                    
+                    <p:panelGrid columns="3" layout="grid" 
+                                 styleClass="panelgrid-noborder"
+                                 columnClasses="ui-grid-col-4,ui-grid-col-2,ui-grid-col-2">
+                        <p:inputText required="true" requiredMessage="Digite sua pesquisa!" 
+                                     placeholder="Digite o item a ser pesquisado"  />
+                            
+                        <p:commandButton icon="fa fa-search" value="Procurar" />
+                    </p:panelGrid>
+                </div>  
+            </h:form>
+            
+            <p:separator />
+            
+            <h:form>
+                <p:dataTable >
+                    <f:facet name="header">
+                        <p:button icon="fa fa-trash" value="Excluir" />
+                    </f:facet>
+                    <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+
+                    <p:column headerText="Cod" style="width: 80px" >
+                        <p:outputLabel value="" />
+                    </p:column>
+                    <p:column headerText="Nome">
+                        <p:outputLabel value="" />
+                    </p:column>
+                    <p:column headerText="Local">
+                        <p:outputLabel value="" />
+                    </p:column>
+                </p:dataTable>
+            </h:form>
 	</ui:define>
 	
 </ui:composition>

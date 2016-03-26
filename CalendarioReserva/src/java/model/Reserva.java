@@ -8,6 +8,7 @@ package model;
 import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +16,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -33,16 +33,13 @@ public class Reserva implements Serializable {
     private Long id;
     
     @ManyToOne
-    @JoinColumn(name = "recurso_id")
-    private Recurso recurso;
+    private Recurso recurso_id;
     
     @ManyToOne
-    @JoinColumn(name = "professor_id")
-    private Professor professor;
+    private Professor professor_id;
     
     @ManyToOne
-    @JoinColumn(name = "admin_id")
-    private Administrador admin;
+    private Administrador admin_id;
     
     @Column(name = "motivo")
     private  String motivo;
@@ -66,31 +63,6 @@ public class Reserva implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Recurso getRecurso() {
-        return recurso;
-    }
-
-    public void setRecurso(Recurso recurso) {
-        this.recurso = recurso;
-    }
-    
-
-    public Professor getProfessor() {
-        return professor;
-    }
-
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
-    }
-
-    public Administrador getAdmin() {
-        return admin;
-    }
-
-    public void setAdmin(Administrador admin) {
-        this.admin = admin;
     }
 
     public String getMotivo() {

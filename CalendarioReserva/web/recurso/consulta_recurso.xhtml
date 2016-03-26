@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>TODO supply a title</title>
+    </h:head>
+    <h:body>        
+        <h:form id="consultarRecursos">
+             <p align="center">
+                 <p:commandButton action="#{cadrecurso.consultarrecurso()}" update="tabelarecurso" value="Buscar"/> 
+             </p>
+            <p:panel>
+                <f:facet name="header">
+                    <p:row>
+                        <p:column>
+                            Resultados da Busca
+                        </p:column>
+                    </p:row>
+                </f:facet>
+                <p:row>
+                    <p:column>
+                        <p:dataTable id="tabelarecurso" var="recurso" value="#{cadrecurso.recursoBuscados}">
+                            <p:column headerText="Nome">
+                                <h:outputText value="#{recurso.nome}" />
+                            </p:column>
+                            <p:column headerText="Local">
+                                <h:outputText value="#{recurso.local}" />
+                            </p:column>
+                            <p:column headerText="Status">
+                                <h:outputText value="#{recurso.status}" />
+                            </p:column>
+                            <p:commandLink title="Visualizar" immediate="true"
+                                        oncomplete="PF('dialogVisualizarRecurso').show()"
+                                        update=":formVisualizarRecurso">
+                                        <i class="fa fa-eye"></i>
+                                        <f:setPropertyActionListener target="#{cadrecurso.recurso}"
+                                                                     value="#{recurso}" />
+                            </p:commandLink>
+                        </p:dataTable>
+                    </p:column>
+                </p:row>
+            </p:panel>
+        </h:form>
+    </h:body>
+</html>

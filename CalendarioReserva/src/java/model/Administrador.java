@@ -5,8 +5,10 @@
  */
 package model;
 
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -16,20 +18,23 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "admin")
 public class Administrador extends Usuario{
-   
-    @Column(name = "usuario", unique = true)
-    private Usuario usuario;
+    
+    @Column(name = "mat")
+    private int matricula;
+    
+    @OneToMany(mappedBy = "admin_id")
+    private List<Reserva> reserva; 
     
      /*
      * GETTERS AND SETTERS
      */
 
-    public Usuario getUsuario() {
-        return usuario;
+    public int getMatricula() {
+        return matricula;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setMatricula(int matricula) {
+        this.matricula = matricula;
     }
-    
+
 }

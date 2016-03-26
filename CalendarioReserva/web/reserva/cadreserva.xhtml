@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Cadastra Reserva</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h:form>
+             <p:messages id="messages" showDetail="false" autoUpdate="true" closable="true" />
+             <p:growl id="growl" showDetail="true" sticky="true" /> 
+             
+             <p:panel>
+                 <h:panelGrid columns="2" cellpadding="10">
+                    <h:outputText value="Motivo:" />
+                    <p:inputTextarea id="motivo" requiredMessage="Precisa preencher a Motivo!" required="true"  value="#{cadreserva.reserva.motivo}"/> 
+                    <h:outputText value="Disponibilidade:" />
+                    <p:selectOneRadio id="disponibilidade" value="#{cadreserva.reserva.disponibilidade}">
+                    <f:selectItem itemLabel="indispinivel" itemValue="false" />
+                    <f:selectItem itemLabel="Disponivel" itemValue="true" />
+                    </p:selectOneRadio>
+                 </h:panelGrid>
+             </p:panel>
+             
+             <p align="center">
+                 <p:commandButton action="#{cadreserva.cadreserva()}"  value="Salvar"/> 
+                </p>
+        </h:form>
+    </h:body>
+</html>

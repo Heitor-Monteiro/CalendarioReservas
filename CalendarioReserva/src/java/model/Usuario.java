@@ -34,11 +34,8 @@ public abstract class Usuario implements Serializable{
     @Column (name = "nome")
     private  String nome;
     
-    @Column (name = "a_nome")
+    @Column (name = "s_nome")
     private  String SobreNome;
-    
-    @Column (name = "mat")
-    private  Long  matricula;
     
     @Column (name = "dataNasc")
     private  Date dataNasc;
@@ -51,12 +48,10 @@ public abstract class Usuario implements Serializable{
     
     @Column (name = "login")
     private String login;
-
-    public String getTipoUsuario() {
-        return tipoUsuario;
-    }
-
-
+    
+    @Column (name = "t_usuario")
+    private  boolean tipo_usuario;
+    
      /*
      * GETTERS AND SETTERS
      */
@@ -84,14 +79,6 @@ public abstract class Usuario implements Serializable{
 
     public void setSobreNome(String SobreNome) {
         this.SobreNome = SobreNome;
-    }
-
-    public Long getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(Long matricula) {
-        this.matricula = matricula;
     }
 
     public Date getDataNasc() {
@@ -125,12 +112,23 @@ public abstract class Usuario implements Serializable{
     public void setLogin(String login) {
         this.login = login;
     }
-    
-     public void setTipoUsuario(String tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public boolean isTipo_usuario() {
+        return tipo_usuario;
+    }
+
+    public void setTipo_usuario(boolean tipo_usuario) {
+        this.tipo_usuario = tipo_usuario;
     }
     
-    @Column (name = "t_usuario")
-    private String tipoUsuario;
+    
     
 }

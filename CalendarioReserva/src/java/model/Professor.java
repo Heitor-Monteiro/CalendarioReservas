@@ -5,8 +5,10 @@
  */
 package model;
 
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -16,29 +18,28 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "professor")
 public class Professor extends Usuario{
-
-    public Professor() {
     
-    }
-    
-    @Column(name = "usuario",unique = true)
-    private Usuario usuario;
+    @OneToMany(mappedBy = "professor_id")
+    private List<Reserva> reserva;
     
     @Column(name = "faculdade")
     private String faculdade;
+    
+    @Column(name = "siap")
+    private String siap;
     
      /*
      * GETTERS AND SETTERS
      */
 
-    public Usuario getUsuario() {
-        return usuario;
+    public String getSiap() {
+        return siap;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setSiap(String siap) {
+        this.siap = siap;
     }
-
+    
     public String getFaculdade() {
         return faculdade;
     }
