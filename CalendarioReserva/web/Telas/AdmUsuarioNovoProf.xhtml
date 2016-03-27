@@ -1,0 +1,141 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+        template="/WEB-INF/templates/Adm_Layout.xhtml">
+	
+	<ui:define name="content">
+            <h1 class="aw-page-title">Novo docente</h1>
+            <h:form id="NovoUsuario">
+                <div class="ui-fluid">
+                    <p:messages  id="messages" autoUpdate="true" closable="true" />
+                    <p:panelGrid columns="2" layout="grid"
+                                 style="margin-top: 20px;"
+                                 styleClass="panelgrid-noborder"
+                                 columnClasses="ui-grid-col-2, ui-grid-col-4">
+                        
+                        
+                        
+                        <p:outputLabel for="siap" value="SIAP:" />
+                        <p:inputText id="siap" required="true" 
+                                     requiredMessage="Digite sua matrícula!" 
+                                     value="" />
+
+                        
+                        
+                        <p:outputLabel for="nome" value="Nome:" />
+                        <p:inputText id="nome" required="true" 
+                                     requiredMessage="Digite seu nome!" 
+                                     value=""/>
+
+                        
+                        <p:outputLabel for="sobreNome" value="Sobre nome:" />
+                        <p:inputText id="sobreNome" required="true" 
+                                     requiredMessage="Digite seu sobre nome!" 
+                                     value=""/>
+                        
+                        
+                        
+                        <p:outputLabel for="dataNasc" value="Data de nascimento:" />
+                        <p:calendar id="dataNasc" required="true" maxlength="10"
+                                    requiredMessage="Digite sua data de nascimento!"
+                                    locale="de" navigator="true" 
+                                    pattern="yyyy-mm-dd" value="#{cadProfessor.professor.dataNasc}" />
+                        <p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
+                            <p:panelGrid id="display" columns="2" columnClasses="label,value">
+                                <h:outputText value="German:" />
+                                <h:outputText value="#{cadProfessor.professor.dataNasc}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                </h:outputText>
+                            </p:panelGrid>
+                        </p:dialog>
+                    </p:panelGrid>
+                    
+                    
+                    <p:panelGrid columns="2" layout="grid"
+                                 styleClass="panelgrid-noborder"
+                                 columnClasses="ui-grid-col-2, ui-grid-col-4">
+                        
+                        
+                        <p:outputLabel for="cpf" value="CPF:" />
+                        <p:inputText id="cpf" maxlength="11" placeholder="Ex.: 99911188822"
+                                     required="true" requiredMessage="Digite seu CPF!" 
+                                     value="" />
+                        
+                        
+                        
+                        <p:outputLabel for="login" value="Email/Login:" />
+                        <p:inputText id="login" required="true" 
+                                     requiredMessage="Digite seu login!" 
+                                     value="" />
+                        
+                        
+                        
+                        <p:outputLabel for="senha1" value="Senha:" />
+                        <p:password id="senha1" feedback="true" inline="true" match="senha2" 
+                                    required="true" requiredMessage="Digite sua senha!" 
+                                    value="" />
+                        
+                        
+                        
+                        <p:outputLabel for="senha2" value="Digite novamente a senha:" />
+                        <p:password id="senha2" feedback="true" inline="true"
+                                    required="true" requiredMessage="Digite novamente sua senha!" />
+
+                        
+                        
+                        <p:outputLabel for="status" value="Status:" />
+                        <p:selectOneButton id="status" required="true" 
+                                           requiredMessage="Escolha o status" 
+                                           value="" >
+                            <f:selectItem itemLabel="Ativo" itemValue="true" />
+                            <f:selectItem itemLabel="Inativo" itemValue="false" />
+                        </p:selectOneButton>
+                        
+                        
+                        
+                        <p:outputLabel for="tipo_usuario" value="Tipo de usuário:" />
+                        <p:selectOneButton id="tipo_usuario" required="true" 
+                                           requiredMessage="Escolha o status" 
+                                           value="" >
+                            <f:selectItem itemLabel="Professor" itemValue="false" />
+                        </p:selectOneButton>
+                        
+                        
+                        
+                        <p:outputLabel for="faculdade" value="Faculdade:" />
+                        <p:selectOneMenu id="faculdade" required="true"
+                                         requiredMessage="Escolha a faculdade!"
+                                         value="" >
+                            <f:selectItem itemLabel="Selecione a faculdade" itemValue="" />
+                            <f:selectItem itemLabel="Computação" itemValue="computação" />
+                            <f:selectItem itemLabel="Letras" itemValue="letras" />
+                            <f:selectItem itemLabel="Educação Física" itemValue="educação física" />
+                            <f:selectItem itemLabel="Pedagogia" itemValue="pedagogia" />
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                          
+                    <p:panelGrid columns="3" layout="grid" 
+                                 style="margin-top: 20px"
+                                 styleClass="panelgrid-noborder"
+                                 columnClasses="ui-grid-col-2,ui-grid-col-2,ui-grid-col-2" >
+                        
+                        
+                        <p:commandButton id="SalvarNovoUsuario" icon="fa fa-save" 
+                                         value="Salvar"
+                                         action="#{cadProfessor.salvarProf()}"/>
+
+                        <p:commandButton type="reset" id="LimparCampos" icon="fa fa-eraser" value="Limpar" action="#" />
+
+                        <p:button id="Cancelar" icon="fa fa-ban" value="Cancelar" outcome="/Telas/AdmINICIO" />
+                    </p:panelGrid>
+                </div>
+            </h:form>
+            
+            
+            
+            
+	</ui:define>
+	
+</ui:composition>
