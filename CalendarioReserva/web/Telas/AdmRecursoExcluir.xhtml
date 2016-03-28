@@ -21,6 +21,8 @@
                             <f:selectItem itemLabel="Nome" itemValue="nome" />
                             <f:selectItem itemLabel="Local" itemValue="loca" />
                             <f:selectItem itemLabel="Cod" itemValue="cod" />
+                            <f:selectItem itemLabel="Ativo" itemValue="true" />
+                            <f:selectItem itemLabel="Inativo" itemValue="false" />
                         </p:selectOneButton>
                     </p:panelGrid>
                     
@@ -38,12 +40,14 @@
             <p:separator />
             
             <h:form>
-                <p:dataTable >
+                <p:dataTable var="" value="" reflow="true" rows="20" paginator="true" >
                     <f:facet name="header">
                         <p:button icon="fa fa-trash" value="Excluir" />
                     </f:facet>
-                    <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
-
+                    <p:column headerText="i" style="width:16px;text-align:center" >
+                        <p:column selectionMode="multiple" />
+                    </p:column>
+                    
                     <p:column headerText="Cod" style="width: 80px" >
                         <p:outputLabel value="" />
                     </p:column>
@@ -54,6 +58,8 @@
                         <p:outputLabel value="" />
                     </p:column>
                 </p:dataTable>
+                
+                
             </h:form>
 	</ui:define>
 	

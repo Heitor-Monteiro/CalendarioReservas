@@ -24,7 +24,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>/A2@sH7$j/*</url-pattern>
+        <url-pattern>/faces/*</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -32,7 +32,7 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>faces/index.xhtml</welcome-file>
+        <welcome-file>faces/Telas/TelaPublicaLivre.xhtml</welcome-file>
     </welcome-file-list>
     
 <!--Codigo extra do AlgaWorks-->    

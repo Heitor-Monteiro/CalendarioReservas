@@ -7,6 +7,50 @@
 	
 	<ui:define name="content">
             <h1 class="aw-page-title">Editar Usuário</h1>
+            <h:form id="PesquisarUsuarioEditar">
+                <div class="ui-fluid">
+                    <p:messages  id="messages" autoUpdate="true" closable="true" />
+                    <p:panelGrid columns="2" layout="grid" 
+                                 style="margin-top: 20px;"
+                                 styleClass="panelgrid-noborder"
+                                 columnClasses="ui-grid-col-2,ui-grid-col-4">
+                        <p:outputLabel value="Pesquisar por:" />
+                        
+                        <p:selectOneButton value="" required="true" requiredMessage="Escolha um tipo de pesquisa!" >
+                            <f:selectItem itemLabel="SIAP" itemValue="siap" />
+                            <f:selectItem itemLabel="Matrícula" itemValue="siap" />
+                            <f:selectItem itemLabel="CPF" itemValue="cpf" />
+                            <f:selectItem itemLabel="Nome" itemValue="nome" />
+                        </p:selectOneButton>
+                    </p:panelGrid>
+                    
+                    <p:panelGrid columns="3" layout="grid" 
+                                 styleClass="panelgrid-noborder"
+                                 columnClasses="ui-grid-col-4,ui-grid-col-2,ui-grid-col-2">
+                        <p:inputText required="true" requiredMessage="Digite sua pesquisa!" 
+                                     placeholder="Digite o item a ser pesquisado"  />
+                            
+                        <p:commandButton icon="fa fa-search" value="Procurar" />
+                    </p:panelGrid>
+                </div>  
+            </h:form>
+            
+            <p:separator />
+            
+            <h:form id="ExcluirUsuario" >
+                <p:dataTable var="" value="" editable="true" reflow="true" >
+                    <f:facet name="header">
+                        Editar Usuário 
+                    </f:facet>
+                    
+                    <p:ajax event="rowEdit"   />
+                    <p:ajax event="rowEditCancel"  />
+                    
+                    <p:column>
+                        
+                    </p:column>
+                </p:dataTable>
+            </h:form>
 	</ui:define>
 	
 </ui:composition>

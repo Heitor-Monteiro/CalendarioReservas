@@ -7,7 +7,7 @@
 	
 	<ui:define name="content">
             <h1 class="aw-page-title">Excluir usuário</h1>
-            <h:form id="ExcluirUsuario">
+            <h:form id="PesquisarUsuarioExcluir">
                 <div class="ui-fluid">
                     <p:messages  id="messages" autoUpdate="true" closable="true" />
                     <p:panelGrid columns="2" layout="grid" 
@@ -36,7 +36,7 @@
             
             <p:separator />
             
-            <h:form>
+            <h:form id="ExcluirUsuario" >
                 <p:dataTable >
                     <f:facet name="header">
                         <p:button icon="fa fa-trash" value="Excluir" />
