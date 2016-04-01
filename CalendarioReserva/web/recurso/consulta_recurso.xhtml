@@ -7,9 +7,17 @@
     <h:head>
         <title>TODO supply a title</title>
     </h:head>
-    <h:body>        
-        <h:form id="consultarRecursos">
-             <p align="center">
+    
+    <f:metadata>
+        <f:viewAction action="#{cadrecurso.consultarrecurso()}">  </f:viewAction>    
+    </f:metadata>
+    <h:body > 
+        
+        
+        <h:form id="consultarRecursos" >
+        
+            
+            <p align="center">
                  <p:commandButton action="#{cadrecurso.consultarrecurso()}" update="tabelarecurso" value="Buscar"/> 
              </p>
             <p:panel>

@@ -16,25 +16,58 @@
                                  style="margin-top: 20px"
                                  styleClass="panelgrid-noborder"
                                  columnClasses="ui-grid-col-2, ui-grid-col-4">
-                        <p:outputLabel for="New_NomeRecurso" value="Nome" />
-                        <p:inputText id="New_NomeRecurso" required="true" requiredMessage="Falta o nome do recurso!"/>
-
-                        <p:outputLabel for="New_LocalRecurso" value="Local" />
-                        <p:inputText id="New_LocalRecurso" required="true" requiredMessage="Informe o local!" />
-
-                        <p:outputLabel for="New_DescricaoRecurso" value="Descrição" />
-                        <p:inputTextarea id="New_DescricaoRecurso" required="true" requiredMessage="Informe a descrição!" />
+                        
+                        
+                        
+                        <p:outputLabel for="New_NomeRecurso" value="Nome:" />
+                        <p:inputText id="New_NomeRecurso" required="true" 
+                                     requiredMessage="Falta o nome do recurso!" 
+                                     value="#{cadrecurso.recurso.nome}" />
+                        
+                        
+                        
+                        <p:outputLabel for="New_LocalRecurso" value="Local:" />
+                        <p:inputText id="New_LocalRecurso" required="true" 
+                                     requiredMessage="Informe o local!" 
+                                     value="#{cadrecurso.recurso.local}" />
+                        
+                        
+                        
+                        <p:outputLabel for="status" value="Status:" />
+                        <p:selectOneButton id="status" required="true" 
+                                           requiredMessage="Escolha o status" 
+                                           value="#{cadrecurso.recurso.status}" >
+                            <f:selectItem itemLabel="Disponível" itemValue="true" />
+                            <f:selectItem itemLabel="Indisponível" itemValue="false" />
+                        </p:selectOneButton>
+                        
+                        
+                        <p:outputLabel for="New_DescricaoRecurso" value="Descrição:" />
+                        <p:inputTextarea id="New_DescricaoRecurso" required="true" 
+                                         requiredMessage="Informe a descrição!" 
+                                         value="" />
                     </p:panelGrid>
                     
                     <p:panelGrid columns="3" layout="grid" 
                                  style="margin-top: 20px"
                                  styleClass="panelgrid-noborder"
                                  columnClasses="ui-grid-col-2,ui-grid-col-2,ui-grid-col-2" >
-                        <p:commandButton id="SalvarNovoUsuario" icon="fa fa-save" value="Salvar" action="#" />
-
-                        <p:commandButton type="reset" id="LimparCampos" icon="fa fa-eraser" value="Limpar" action="#" />
+                        <p:commandButton id="SalvarNovoUsuario" icon="fa fa-save" 
+                                         value="Salvar" 
+                                         action="#" />
                         
-                        <p:button id="Cancelar" icon="fa fa-ban" value="Cancelar" outcome="/Telas/AdmINICIO" />
+                        
+                        
+                        <p:commandButton type="reset" id="LimparCampos" 
+                                         icon="fa fa-eraser" 
+                                         value="Limpar" 
+                                         action="#" />
+                        
+                        
+                        
+                        <p:button id="Cancelar" icon="fa fa-ban" 
+                                  value="Cancelar" 
+                                  outcome="/Telas/AdmINICIO" />
                     </p:panelGrid>
                 </div>
             </h:form>
