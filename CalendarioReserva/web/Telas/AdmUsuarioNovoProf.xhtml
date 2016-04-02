@@ -20,20 +20,20 @@
                         <p:outputLabel for="siap" value="SIAP:" />
                         <p:inputText id="siap" required="true" 
                                      requiredMessage="Digite sua matrícula!" 
-                                     value="" />
+                                     value="#{cadProfessor.professor.siap}" />
 
                         
                         
                         <p:outputLabel for="nome" value="Nome:" />
                         <p:inputText id="nome" required="true" 
                                      requiredMessage="Digite seu nome!" 
-                                     value=""/>
+                                     value="#{cadProfessor.professor.nome}"/>
 
                         
                         <p:outputLabel for="sobreNome" value="Sobre nome:" />
                         <p:inputText id="sobreNome" required="true" 
                                      requiredMessage="Digite seu sobre nome!" 
-                                     value=""/>
+                                     value="#{cadProfessor.professor.sobreNome}"/>
                         
                         
                         
@@ -61,21 +61,21 @@
                         <p:outputLabel for="cpf" value="CPF:" />
                         <p:inputMask id="cpf" mask="999.999.999-99" 
                                      required="true" requiredMessage="Digite seu CPF!" 
-                                     value="" />
+                                     value="#{cadProfessor.professor.cpf}" />
                         
                         
                         
                         <p:outputLabel for="login" value="Email/Login:" />
                         <p:inputText id="login" required="true" 
                                      requiredMessage="Digite seu login!" 
-                                     value="" />
+                                     value="#{cadProfessor.professor.login}" />
                         
                         
                         
                         <p:outputLabel for="senha1" value="Senha:" />
                         <p:password id="senha1" feedback="true" inline="true" match="senha2" 
                                     required="true" requiredMessage="Digite sua senha!" 
-                                    value="" />
+                                    value="#{cadProfessor.professor.senha}" />
                         
                         
                         
@@ -88,7 +88,7 @@
                         <p:outputLabel for="status" value="Status:" />
                         <p:selectOneButton id="status" required="true" 
                                            requiredMessage="Escolha o status" 
-                                           value="" >
+                                           value="#{cadProfessor.professor.status}" >
                             <f:selectItem itemLabel="Ativo" itemValue="true" />
                             <f:selectItem itemLabel="Inativo" itemValue="false" />
                         </p:selectOneButton>
@@ -98,7 +98,7 @@
                         <p:outputLabel for="tipo_usuario" value="Tipo de usuário:" />
                         <p:selectOneButton id="tipo_usuario" required="true" 
                                            requiredMessage="Escolha o status" 
-                                           value="" >
+                                           value="#{cadProfessor.professor.tipo_usuario}" >
                             <f:selectItem itemLabel="Professor" itemValue="false" />
                         </p:selectOneButton>
                         
@@ -107,7 +107,7 @@
                         <p:outputLabel for="faculdade" value="Faculdade:" />
                         <p:selectOneMenu id="faculdade" required="true"
                                          requiredMessage="Escolha a faculdade!"
-                                         value="" >
+                                         value="#{cadProfessor.professor.faculdade}" >
                             <f:selectItem itemLabel="Selecione a faculdade" itemValue="" />
                             <f:selectItem itemLabel="Computação" itemValue="computação" />
                             <f:selectItem itemLabel="Letras" itemValue="letras" />
