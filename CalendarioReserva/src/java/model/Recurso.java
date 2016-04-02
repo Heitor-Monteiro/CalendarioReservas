@@ -40,10 +40,18 @@ public class Recurso implements Serializable{
     
     @Column(name = "status")
     private boolean status;
+
+    @Column (name = "descricao")
+    private String descricao;
     
-     /*
-     * GETTERS AND SETTERS
-     */
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
 
 
     public Long getId() {
