@@ -7,23 +7,32 @@
 	
 	<ui:define name="content">
             <h1 class="aw-page-title">Recursos livres</h1>
-		
-            <p:dataTable var="" value="" reflow="true" rows="20" paginator="true" >
+            
+            <f:metadata>
+                <f:viewAction action="#{cadrecurso.consultarrecurso()}" />  
+            </f:metadata>
+            
+            <p:dataTable var="recurso" 
+                         value="#{cadrecurso.recursoBuscados}" 
+                         reflow="true" rows="20" 
+                         paginator="true" >
+                
                 <p:column headerText="Cod" width="35">
-                    <p:outputLabel value="" />
+                    <p:outputLabel value="#{recurso.id}" />
                 </p:column>
 
                 <p:column headerText="Nome Recurso">
-                    <p:outputLabel value="" />
+                    <p:outputLabel value="#{recurso.nome}" />
                 </p:column>
 
                 <p:column headerText="Local">
-                    <p:outputLabel value="" />
+                    <p:outputLabel value="#{recurso.local}" />
                 </p:column>
 
                 <p:column headerText="Descrição">
-                    <p:outputLabel value="" />
+                    <p:outputLabel value="#{recurso.descricao}" />
                 </p:column>
+                
             </p:dataTable>
         
 	</ui:define>

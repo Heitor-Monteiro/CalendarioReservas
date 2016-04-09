@@ -84,7 +84,11 @@ public class Recurso implements Serializable{
 
     public void setStatus(boolean status) {
         this.status = status;
-    } 
+    }
     
-    
+    public String getStatusTexto(){
+        String resp = "Indisponível";
+        if(this.status == true){resp = "Disponível";}
+        return resp;
+    }   
 }

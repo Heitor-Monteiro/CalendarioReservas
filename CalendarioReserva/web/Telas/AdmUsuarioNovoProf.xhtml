@@ -25,13 +25,13 @@
                         
                         
                         <p:outputLabel for="nome" value="Nome:" />
-                        <p:inputText id="nome" required="true" 
+                        <p:inputText class="maiuscula" id="nome" required="true" 
                                      requiredMessage="Digite seu nome!" 
                                      value="#{cadProfessor.professor.nome}"/>
 
                         
                         <p:outputLabel for="sobreNome" value="Sobre nome:" />
-                        <p:inputText id="sobreNome" required="true" 
+                        <p:inputText class="maiuscula" id="sobreNome" required="true" 
                                      requiredMessage="Digite seu sobre nome!" 
                                      value="#{cadProfessor.professor.sobreNome}"/>
                         
@@ -109,10 +109,10 @@
                                          requiredMessage="Escolha a faculdade!"
                                          value="#{cadProfessor.professor.faculdade}" >
                             <f:selectItem itemLabel="Selecione a faculdade" itemValue="" />
-                            <f:selectItem itemLabel="Computação" itemValue="computação" />
-                            <f:selectItem itemLabel="Letras" itemValue="letras" />
-                            <f:selectItem itemLabel="Educação Física" itemValue="educação física" />
-                            <f:selectItem itemLabel="Pedagogia" itemValue="pedagogia" />
+                            <f:selectItem itemLabel="Computação" itemValue="COMPUTACAO" />
+                            <f:selectItem itemLabel="Letras" itemValue="LETRAS" />
+                            <f:selectItem itemLabel="Educação Física" itemValue="EDUCACAO FISICA" />
+                            <f:selectItem itemLabel="Pedagogia" itemValue="PEDAGOGIA" />
                         </p:selectOneMenu>
                     </p:panelGrid>
                           

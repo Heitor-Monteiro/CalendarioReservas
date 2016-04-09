@@ -7,6 +7,98 @@
 	
 	<ui:define name="content">
             <h1 class="aw-page-title">Editar recurso</h1>
+            
+            <f:metadata>
+                <f:viewAction action="#{cadrecurso.consultarrecurso()}">  </f:viewAction>    
+            </f:metadata>
+            
+            <p:messages  id="messages" autoUpdate="true" closable="true" showDetail="true" />
+            <p:panelGrid columns="1"  layout="grid"  styleClass="panelgrid-noborder" >
+            
+            <h:form id="EditarRecurso" >
+                <p:dataTable id="recursoBuscados"
+                             var="recurso" 
+                             value="#{cadrecurso.recursoBuscados}" 
+                             editable="true" reflow="true" >
+                    
+                    <f:facet name="header">
+                        Editar Recurso
+                    </f:facet>
+                    
+                    <!-- <p:ajax event="rowEdit" listener="#" /> --> 
+                    <p:ajax event="rowEdit" />
+                    <p:ajax event="rowEditCancel"  />
+                    
+                    <p:column headerText="Id" width="50" >
+                        <p:cellEditor>
+                            <f:facet name="output"><p:outputLabel value="#{recurso.id}" /></f:facet>
+                            <f:facet name="input">
+                                <p:inputText disabled="true" 
+                                             placeholder="#{recurso.id}" 
+                                             style="width: 100%;" />
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+                    
+                    <p:column headerText="Nome" >
+                        <p:cellEditor>
+                            <f:facet name="output"><p:outputLabel value="#{recurso.nome}" /></f:facet>
+                            <f:facet name="input">
+                                <p:inputText class="maiuscula" value="#{recurso.nome}" 
+                                             placeholder="#{recurso.nome}"
+                                             maxlength="255"
+                                             style="width: 100%;" />
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+                    
+                    <p:column headerText="Local" >
+                        <p:cellEditor>
+                            <f:facet name="output"><p:outputLabel value="#{recurso.local}" /></f:facet>
+                            <f:facet name="input">
+                                <p:inputText class="maiuscula" value="#{recurso.local}" 
+                                             placeholder="#{recurso.local}"
+                                             maxlength="255"
+                                             style="width: 100%;" />
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+                    
+                    <p:column headerText="Descrição" >
+                        <p:cellEditor>
+                            <f:facet name="output"><p:outputLabel value="#{recurso.descricao}" /></f:facet>
+                            <f:facet name="input">
+                                <p:inputTextarea class="maiuscula" value="#{recurso.descricao}" 
+                                             placeholder="#{recurso.descricao}"
+                                             maxlength="255"
+                                             style="width: 100%;" />
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+                    
+                    <p:column headerText="Status" width="110" >
+                        <p:cellEditor>
+                            <f:facet name="output"><p:outputLabel value="#{recurso.statusTexto}" /></f:facet>
+                            <f:facet name="input">
+                                <p:selectOneMenu value="#{cadrecurso.recurso.status}" >
+                                           <f:selectItem itemLabel="Disponível" itemValue="true" />
+                                           <f:selectItem itemLabel="Indisponível" itemValue="false" />
+                                </p:selectOneMenu>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+                    
+                    <p:column style="width:32px">
+                        <p:rowEditor />
+                    </p:column>
+                    
+                </p:dataTable>
+                
+                
+            </h:form>
+                
+            </p:panelGrid>
+            
 	</ui:define>
 	
 </ui:composition>

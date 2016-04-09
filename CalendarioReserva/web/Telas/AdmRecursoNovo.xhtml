@@ -20,15 +20,19 @@
                         
                         
                         <p:outputLabel for="New_NomeRecurso" value="Nome:" />
-                        <p:inputText id="New_NomeRecurso" required="true" 
-                                     requiredMessage="Falta o nome do recurso!" 
+                        <p:inputText class="maiuscula" 
+                                     id="New_NomeRecurso" required="true" 
+                                     requiredMessage="Falta o nome do recurso!"
+                                     maxlength="255"
                                      value="#{cadrecurso.recurso.nome}" />
                         
                         
                         
                         <p:outputLabel for="New_LocalRecurso" value="Local:" />
-                        <p:inputText id="New_LocalRecurso" required="true" 
-                                     requiredMessage="Informe o local!" 
+                        <p:inputText class="maiuscula" 
+                                     id="New_LocalRecurso" required="true" 
+                                     requiredMessage="Informe o local!"
+                                     maxlength="255"
                                      value="#{cadrecurso.recurso.local}" />
                         
                         
@@ -43,8 +47,10 @@
                         
                         
                         <p:outputLabel for="New_DescricaoRecurso" value="Descrição:" />
-                        <p:inputTextarea id="New_DescricaoRecurso" required="true" 
-                                         requiredMessage="Informe a descrição!" 
+                        <p:inputTextarea class="maiuscula" 
+                                         id="New_DescricaoRecurso" required="true" 
+                                         requiredMessage="Informe a descrição!"
+                                         maxlength="255"
                                          value="#{cadrecurso.recurso.descricao}" />
                     </p:panelGrid>
                     
@@ -52,9 +58,12 @@
                                  style="margin-top: 20px"
                                  styleClass="panelgrid-noborder"
                                  columnClasses="ui-grid-col-2,ui-grid-col-2,ui-grid-col-2" >
-                        <p:commandButton id="SalvarNovoUsuario" icon="fa fa-save" 
+                        
+                        
+                        
+                        <p:commandButton id="SalvarNovoRecurso" icon="fa fa-save" 
                                          value="Salvar" 
-                                         action="#" />
+                                         action="#{cadrecurso.salvarRecurso()}" />
                         
                         
                         
