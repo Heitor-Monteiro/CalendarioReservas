@@ -1,0 +1,208 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+        template="/WEB-INF/templates/Adm_Layout.xhtml">
+	
+	<ui:define name="content">
+            <h1 class="aw-page-title">Nova reserva</h1>
+            <h:form id="PesquisarDocente">
+                <div class="ui-fluid">
+                    <p:messages  id="messages" autoUpdate="true" closable="true" />
+                    <p:panelGrid columns="2" layout="grid" 
+                                 style="margin-top: 20px;"
+                                 styleClass="panelgrid-noborder"
+                                 columnClasses="ui-grid-col-2,ui-grid-col-4">
+                        <p:outputLabel value="Pesquisar por:" />
+                        
+                        <p:selectOneButton value="" required="true" requiredMessage="Escolha um tipo de pesquisa!" >
+                            <f:selectItem itemLabel="SIAP" itemValue="siap" />
+                            <f:selectItem itemLabel="CPF" itemValue="cpf" />
+                            <f:selectItem itemLabel="Nome" itemValue="nome" />
+                        </p:selectOneButton>
+                    </p:panelGrid>
+                    
+                    <p:panelGrid columns="3" layout="grid" 
+                                 styleClass="panelgrid-noborder"
+                                 columnClasses="ui-grid-col-4,ui-grid-col-2,ui-grid-col-2">
+                        <p:inputText required="true" requiredMessage="Digite sua pesquisa!" 
+                                     placeholder="Digite o item a ser pesquisado"  />
+                            
+                        <p:commandButton icon="fa fa-search" value="Procurar docente" />
+                    </p:panelGrid>
+                </div>
+            </h:form>
+            
+            
+            
+            
+            
+            <p:accordionPanel style="margin-top: 20px;" rendered="true">
+                <p:tab title="Escolher docente">
+                    <h:form id="ResultDocente">
+                        <p:dataTable id="radioDT"
+                                     rowKey="{professor.siap}"
+                                     paginator="true"
+                                     rows="10"
+                                     reflow="true">
+
+                            <p:column selectionMode="single" style="width:16px;text-align:center"/>
+
+                            <p:column headerText="Id" width="50" style="text-align: center">
+                                <p:outputLabel value=""  />
+                            </p:column>
+
+                            <p:column headerText="CPF" width="115">
+                                <p:outputLabel value="" />
+                            </p:column>
+
+                            <p:column headerText="SIAP" width="115">
+                                <p:outputLabel value="" />
+                            </p:column>
+
+                            <p:column headerText="Nome">
+                                <p:outputLabel value="" />
+                            </p:column>
+
+                            <p:column headerText="Escolher" width="115" >
+                                <p:commandButton process="radioDT"
+                                                 icon="fa fa-check" 
+                                                 value="Escolher" />
+                            </p:column>
+
+                        </p:dataTable>
+                    </h:form>
+                </p:tab>
+            
+            
+            
+            
+            
+            
+                <p:tab title="Escolher recurso" rendered="true">
+                    <f:metadata>
+                        <f:viewAction action="#{cadrecurso.consultarrecurso()}" />  
+                    </f:metadata>
+
+                    <h:form id="EscolhaRecurso">
+
+                        <p:dataTable id="radioEscolhaRecurso"
+                                     var="recurso" 
+                                     value="#{cadrecurso.recursoBuscados}" 
+                                     reflow="true" rows="10" 
+                                     paginator="true"
+                                     rowKey="#{recurso.id}" >
+
+                            <p:column selectionMode="single" style="width:30px;text-align:center"/>
+
+                            <p:column headerText="Id" width="50" style="text-align: center">
+                                <p:outputLabel value="#{recurso.id}" />
+                            </p:column>
+
+                            <p:column headerText="Nome Recurso">
+                                <p:outputLabel value="#{recurso.nome}" />
+                            </p:column>
+
+                            <p:column headerText="Status" width="110" style="text-align: center">
+                                <p:outputLabel value="#{recurso.statusTexto}" />
+                            </p:column>
+
+                            <p:column headerText="Escolher" width="115" >
+                                <p:commandButton process="radioEscolhaRecurso"
+                                                 icon="fa fa-check" 
+                                                 value="Escolher" />
+                            </p:column>
+                        </p:dataTable>
+                    </h:form>
+                </p:tab>
+                    
+                
+                
+                
+                
+                
+                
+                <p:tab title="Dados reserva" rendered="true" >
+                    <h:form id="ReservarRecurso" class="ui-fluid">
+
+
+                        <p:panelGrid columns="2" layout="grid"
+                                     styleClass="panelgrid-noborder"
+                                     columnClasses="ui-grid-col-2, ui-grid-col-4" >
+
+
+
+                            <p:outputLabel value="SIAP:" />
+                            <p:inputText disabled="true" placeholder="" />
+
+                            <p:outputLabel value="Nome docente:" />
+                            <p:inputText disabled="true" value="" />
+
+                            <p:outputLabel value="Id recurso:" />
+                            <p:inputText disabled="true" value="" />
+
+                            <p:outputLabel value="Nome recurso:" />
+                            <p:inputText disabled="true" value="" />
+
+                            <p:outputLabel for="Razao" value="Razão:" />
+                            <p:inputTextarea class="maiuscula" 
+                                     id="Razao" required="true" 
+                                     requiredMessage="Informe sua razão!"
+                                     maxlength="255"
+                                     value="" />
+
+                            <p:outputLabel for="data" value="Data de sua reserva:" />
+                            <p:calendar id="data" required="true" maxlength="10"
+                                        requiredMessage="Escolha uma data para a reserva!"
+                                        locale="de" navigator="true" 
+                                        pattern="yyyy-mm-dd" value="#{cadreserva.reserva.dataReserva}" />
+
+
+
+                            <p:outputLabel for="hora" value="Hora de sua reserva:" />
+                            <p:calendar id="hora" value="#{cadreserva.reserva.hora}" 
+                                        pattern="HH:mm" timeOnly="true"
+                                        maxlength="5"
+                                        required="true" requiredMessage="Coloque a hora de sua reserva!" />
+
+
+
+                            <p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
+                                <p:panelGrid id="display" columns="2" columnClasses="label,value">
+
+                                    <h:outputText value="German:" />
+                                    <h:outputText value="#{cadreserva.reserva.dataReserva}">
+                                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                                    </h:outputText>
+
+                                    <h:outputText value="Time:" />
+                                    <h:outputText value="#{cadreserva.reserva.hora}">
+                                        <f:convertDateTime pattern="HH:mm" />
+                                    </h:outputText>
+
+                                </p:panelGrid>
+                            </p:dialog>
+                        </p:panelGrid>
+
+                        <p:panelGrid columns="3" layout="grid" 
+                             style="margin-top: 20px"
+                             styleClass="panelgrid-noborder"
+                             columnClasses="ui-grid-col-2,ui-grid-col-2,ui-grid-col-2" >
+
+
+                            <p:commandButton id="SalvarNovoUsuario" icon="fa fa-save" 
+                                             value="Salvar"
+                                             action="#{cadreserva.cadreserva()}"/>
+
+                            <p:commandButton type="reset" id="LimparCampos" icon="fa fa-eraser" value="Limpar" action="#" />
+
+                            <p:button id="Cancelar" icon="fa fa-ban" value="Cancelar" outcome="/Telas/AdmINICIO" />
+                        </p:panelGrid>
+                    </h:form>
+                </p:tab>
+            </p:accordionPanel>
+            
+	</ui:define>
+	
+</ui:composition>
