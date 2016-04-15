@@ -16,7 +16,7 @@ import model.Administrador;
  */
 @ManagedBean(name = "cadAdmin")
 @SessionScoped
-public class CadAdministradorBean {
+public class CadAdministradorBean extends AbstractMB{
     
     @Inject
     private AdministradorDAO Administradordao;
@@ -51,5 +51,6 @@ public class CadAdministradorBean {
     
     public void salvarAdmin (){
        Administradordao.inserir(administrador);
+       super.displayInfoMessageToUser("Cadastro Realizado com Sucesso!");
     }
 }
