@@ -41,7 +41,7 @@ public abstract class Usuario implements Serializable{
     private  Date dataNasc;
     
     @Column (name = "cpf")
-    private  Integer cpf;
+    private  long cpf;
     
     @Column (name = "status")
     private  boolean status;
@@ -89,11 +89,11 @@ public abstract class Usuario implements Serializable{
         this.dataNasc = dataNasc;
     }
 
-    public Integer getCpf() {
+    public long getCpf() {
         return cpf;
     }
 
-    public void setCpf(Integer cpf) {
+    public void setCpf(long cpf) {
         this.cpf = cpf;
     }
 
