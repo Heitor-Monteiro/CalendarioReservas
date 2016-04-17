@@ -13,6 +13,7 @@
             </f:metadata>
             
             <p:messages  id="messages" autoUpdate="true" closable="true" showDetail="true" />
+            
             <p:panelGrid columns="1"  layout="grid"  styleClass="panelgrid-noborder" >
             
             <h:form id="EditarRecurso" >
@@ -26,8 +27,8 @@
                     </f:facet>
                     
                     <!-- <p:ajax event="rowEdit" listener="#" /> --> 
-                    <p:ajax event="rowEdit" />
-                    <p:ajax event="rowEditCancel"  />
+                    <p:ajax event="rowEdit" listener="#{cadrecurso.atualizaRecurso}"/>
+                    <p:ajax event="rowEditCancel" listener="#{cadrecurso.cancelarEdit}"/>
                     
                     <p:column headerText="Id" width="50" >
                         <p:cellEditor>
@@ -89,7 +90,7 @@
                     </p:column>
                     
                     <p:column style="width:32px">
-                        <p:rowEditor />
+                        <p:rowEditor/>
                     </p:column>
                     
                 </p:dataTable>

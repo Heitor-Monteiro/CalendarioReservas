@@ -19,7 +19,7 @@ import javax.persistence.Table;
 @Table(name = "admin")
 public class Administrador extends Usuario{
     
-    @Column(name = "mat")
+    @Column(name = "matricula")
     private int matricula;
     
     @OneToMany(mappedBy = "admin_id")

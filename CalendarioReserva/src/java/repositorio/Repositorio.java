@@ -25,7 +25,7 @@ public interface Repositorio<T> {
 
 	int executa(String sql);
 
-	TypedQuery<T> criarConsulta(String sql);
+	List<T> consultaUsuario(Class<T> tipo, String campo, String sql);
 
 	TypedQuery<T> criarConsulta(String sql, Object... valores);
 

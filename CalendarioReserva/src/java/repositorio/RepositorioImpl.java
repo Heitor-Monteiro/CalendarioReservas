@@ -62,6 +62,7 @@ public class RepositorioImpl<T> implements Repositorio<T> {
 		if (id == null) {
 			throw new EntityNotFoundException("O id deve ser informado");
 		}
+                System.out.println("dfsfsdf" + id);   
 		return entityManager.find(this.getClasseGenerica(), id);
 	}
 
@@ -101,9 +102,14 @@ public class RepositorioImpl<T> implements Repositorio<T> {
 		return entityManager.createQuery(consulta).getSingleResult();
 	}
 
-	@Override
-	public TypedQuery<T> criarConsulta(String sql) {
-            return entityManager.createNamedQuery(sql, getClasseGenerica());
+        @Override
+	public List<T> consultaUsuario (Class<T> tipo, String campo, String sql) {
+            CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+            CriteriaQuery<T> consulta = cb.createQuery(tipo);
+            Root<T> root = consulta.from(tipo);
+            consulta.select(root);
+            consulta.where(root.get(campo).in(sql));
+            return entityManager.createQuery(consulta).getResultList();
 	}
 
 	@Override
