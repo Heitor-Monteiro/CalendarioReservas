@@ -11,6 +11,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import model.Recurso;
+import org.primefaces.event.RowEditEvent;
 
 /**
  *
@@ -58,12 +59,25 @@ public class CadRecursoBean extends AbstractMB{
         super.displayInfoMessageToUser("Cadastro Realizado com Sucesso!");
     }
      
+    public void atualizaRecurso(RowEditEvent event){
+        try {
+            this.rdao.atualizar((Recurso)event.getObject());
+            super.displayInfoMessageToUser("Professor Alterado com Sucesso!");
+        } catch (Exception e) {
+            e.printStackTrace();
+            super.mensagemErro(mensagem);
+        }
+    }
+    
+    private void listaVazia (List list){
+        if (list.isEmpty() == true) {
+            super.mensagemVazia(mensagem);
+        }
+    }
+     
     public  void consultarrecurso(){
         recursoBuscados = rdao.listar();
-         for (int i = 0; i <recursoBuscados.size(); i++) {
-             System.out.println(recursoBuscados.get(i).getNome());
-             System.out.println(recursoBuscados.get(i).getLocal());
-             System.out.println(recursoBuscados.get(i).getId());
-         }
     }
+    
+    
 }
