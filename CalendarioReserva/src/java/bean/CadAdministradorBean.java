@@ -9,6 +9,7 @@ import javax.faces.bean.ManagedBean;
 import dao.AdministradorDAO;
 import dao.ProfessorDAO;
 import dao.UsuarioDao;
+import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
@@ -35,11 +36,11 @@ public class CadAdministradorBean extends AbstractMB{
     
     private String campo, sql;
     
-    private List<Administrador> adminBuscados;
+    private List<Administrador> adminBuscados = new ArrayList();
     
-    private List<Professor> profBuscados;
+    private List<Professor> profBuscados = new ArrayList();
     
-    private List<Usuario> usuariobuscados;
+    private List<Usuario> usuariobuscados = new ArrayList();
   
     private Administrador administrador = new Administrador();
     
@@ -188,29 +189,32 @@ public class CadAdministradorBean extends AbstractMB{
             case "matricula":
                 adminBuscados = Administradordao.consultaUsuario(Administrador.class, campo, sql);
                 listaVazia(adminBuscados);
+                profBuscados.clear();
+                usuariobuscados.clear();
                 break;
             case "siap":
                 profBuscados = professordao.consultaUsuario(Professor.class, campo,sql);
                 listaVazia(profBuscados);
+                adminBuscados.clear();
+                usuariobuscados.clear();
                 break;
             case "nome":
                 usuariobuscados = usuariodao.consultaUsuario(Usuario.class, campo,sql);
                 listaVazia(usuariobuscados);
+                adminBuscados.clear();
+                profBuscados.clear();
                 break;
             case "cpf":
                 usuariobuscados = usuariodao.consultaUsuario(Usuario.class, campo,sql);
                 listaVazia(usuariobuscados);
+                adminBuscados.clear();
+                profBuscados.clear();
                 break;
             default:
                 super.displayInfoMessageToUser("Indisponível!"); 
                 break;
         }
-    }
-    
-    public void limpar (){
-        profBuscados.clear();
-        adminBuscados.clear();
-        usuariobuscados.clear();
+       
     }
     
     private void listaVazia(List list){
